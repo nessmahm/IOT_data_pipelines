@@ -100,8 +100,8 @@ def iot_data():
             SUPABASE_URL = os.getenv("SUPABASE_URL")
             SUPABASE_KEY = os.getenv("SUPABASE_KEY")
             # Initialize Supabase client
-            supabase = create_client("https://snkgpdfnceyxtluftrrc.supabase.co",
-                                     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InNua2dwZGZuY2V5eHRsdWZ0cnJjIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzExNzIxMjYsImV4cCI6MjA0Njc0ODEyNn0.7HIvVYTAIdQMOQ5Wff_b1XOuJAMhzLlQLtJM3DQge5Y")
+            supabase = create_client(SUPABASE_URL,
+                                    SUPABASE_KEY)
             response = supabase.table("AlertsPerSeverity").upsert(transformed_data).execute()
 
             if response.status_code == 201:
