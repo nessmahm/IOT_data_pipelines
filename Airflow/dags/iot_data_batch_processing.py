@@ -1,4 +1,4 @@
-"""import os
+import os
 from pyspark.sql import functions as F
 from supabase import create_client
 import pandas as pd
@@ -120,4 +120,3 @@ def iot_data():
 
 # Instantiate the DAG
 iot_data()
-"""
