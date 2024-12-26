@@ -1,0 +1,21 @@
+[2024-12-26T09:03:10.452+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T09:03:10.496+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stream_vehicle_alerts_processing.extract_data_from_kafka manual__2024-12-26T08:57:58.593307+00:00 [queued]>
+[2024-12-26T09:03:10.526+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stream_vehicle_alerts_processing.extract_data_from_kafka manual__2024-12-26T08:57:58.593307+00:00 [queued]>
+[2024-12-26T09:03:10.528+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-26T09:03:10.562+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): extract_data_from_kafka> on 2024-12-26 08:57:58.593307+00:00
+[2024-12-26T09:03:10.575+0000] {standard_task_runner.py:72} INFO - Started process 1222 to run task
+[2024-12-26T09:03:10.583+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'stream_vehicle_alerts_processing', 'extract_data_from_kafka', 'manual__2024-12-26T08:57:58.593307+00:00', '--job-id', '14', '--raw', '--subdir', 'DAGS_FOLDER/streamVehiculeAlertsProcessing.py', '--cfg-path', '/tmp/tmpefg6xkco']
+[2024-12-26T09:03:10.589+0000] {standard_task_runner.py:105} INFO - Job 14: Subtask extract_data_from_kafka
+[2024-12-26T09:03:10.701+0000] {task_command.py:467} INFO - Running <TaskInstance: stream_vehicle_alerts_processing.extract_data_from_kafka manual__2024-12-26T08:57:58.593307+00:00 [running]> on host 3096e710f899
+[2024-12-26T09:03:11.026+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='stream_vehicle_alerts_processing' AIRFLOW_CTX_TASK_ID='extract_data_from_kafka' AIRFLOW_CTX_EXECUTION_DATE='2024-12-26T08:57:58.593307+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-26T08:57:58.593307+00:00'
+[2024-12-26T09:03:11.030+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T09:03:20.727+0000] {local_task_job_runner.py:318} WARNING - Recorded pid 1290 does not match the current pid 1222
+[2024-12-26T09:03:20.729+0000] {local_task_job_runner.py:218} WARNING - Heartbeat failed with Exception: PID of job runner does not match
+[2024-12-26T09:03:46.257+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2024-12-26T09:03:46.269+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-12-26T09:03:46.286+0000] {process_utils.py:132} INFO - Sending 15 to group 1222. PIDs of all processes in the group: [1224, 1222]
+[2024-12-26T09:03:46.289+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 1222
+[2024-12-26T09:03:46.300+0000] {taskinstance.py:3093} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-12-26T09:03:46.418+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T09:03:46.476+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1222, status='terminated', exitcode=0, started='09:03:09') (1222) terminated with exit code 0
+[2024-12-26T09:03:46.479+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=1224, status='terminated', started='09:03:10') (1224) terminated with exit code None

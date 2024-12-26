@@ -1,0 +1,427 @@
+[2024-12-26T09:56:36.898+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T09:56:36.940+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vehicle_data_etl_pipeline.extract_raw_data manual__2024-12-26T09:50:14.216023+00:00 [queued]>
+[2024-12-26T09:56:36.961+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vehicle_data_etl_pipeline.extract_raw_data manual__2024-12-26T09:50:14.216023+00:00 [queued]>
+[2024-12-26T09:56:36.962+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-26T09:56:36.991+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): extract_raw_data> on 2024-12-26 09:50:14.216023+00:00
+[2024-12-26T09:56:36.998+0000] {standard_task_runner.py:72} INFO - Started process 11813 to run task
+[2024-12-26T09:56:37.005+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'vehicle_data_etl_pipeline', 'extract_raw_data', 'manual__2024-12-26T09:50:14.216023+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/batchVehiculeProcessing.py', '--cfg-path', '/tmp/tmpu8614f8p']
+[2024-12-26T09:56:37.011+0000] {standard_task_runner.py:105} INFO - Job 46: Subtask extract_raw_data
+[2024-12-26T09:56:37.109+0000] {task_command.py:467} INFO - Running <TaskInstance: vehicle_data_etl_pipeline.extract_raw_data manual__2024-12-26T09:50:14.216023+00:00 [running]> on host 3096e710f899
+[2024-12-26T09:56:37.292+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='vehicle_data_etl_pipeline' AIRFLOW_CTX_TASK_ID='extract_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2024-12-26T09:50:14.216023+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-26T09:50:14.216023+00:00'
+[2024-12-26T09:56:37.295+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T09:56:54.087+0000] {logging_mixin.py:190} INFO - Spark session created !
+[2024-12-26T09:56:59.001+0000] {logging_mixin.py:190} INFO - spark df created !
+[2024-12-26T09:57:11.369+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/batchVehiculeProcessing.py", line 60, in extract_raw_data
+    raw_df.show()
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 947, in show
+    print(self._show_string(n, truncate, vertical))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 965, in _show_string
+    return self._jdf.showString(n, 20, vertical)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o36.showString.
+: org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:553)
+	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchPartitionOffsets(KafkaOffsetReaderAdmin.scala:128)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.getOffsetRangesFromUnresolvedOffsets(KafkaOffsetReaderAdmin.scala:374)
+	at org.apache.spark.sql.kafka010.KafkaRelation.buildScan(KafkaRelation.scala:67)
+	at org.apache.spark.sql.execution.datasources.DataSourceStrategy$.apply(DataSourceStrategy.scala:356)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$1(QueryPlanner.scala:63)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$3(QueryPlanner.scala:78)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:196)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:194)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.foldLeft(TraversableOnce.scala:199)
+	at scala.collection.TraversableOnce.foldLeft$(TraversableOnce.scala:192)
+	at scala.collection.AbstractIterator.foldLeft(Iterator.scala:1431)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$2(QueryPlanner.scala:75)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$3(QueryPlanner.scala:78)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:196)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:194)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.foldLeft(TraversableOnce.scala:199)
+	at scala.collection.TraversableOnce.foldLeft$(TraversableOnce.scala:192)
+	at scala.collection.AbstractIterator.foldLeft(Iterator.scala:1431)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$2(QueryPlanner.scala:75)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.execution.QueryExecution$.createSparkPlan(QueryExecution.scala:496)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$sparkPlan$1(QueryExecution.scala:171)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:138)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:219)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:219)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:218)
+	at org.apache.spark.sql.execution.QueryExecution.sparkPlan$lzycompute(QueryExecution.scala:171)
+	at org.apache.spark.sql.execution.QueryExecution.sparkPlan(QueryExecution.scala:164)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executedPlan$1(QueryExecution.scala:186)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:138)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:219)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:219)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:218)
+	at org.apache.spark.sql.execution.QueryExecution.executedPlan$lzycompute(QueryExecution.scala:186)
+	at org.apache.spark.sql.execution.QueryExecution.executedPlan(QueryExecution.scala:179)
+	at org.apache.spark.sql.execution.QueryExecution.simpleString(QueryExecution.scala:238)
+	at org.apache.spark.sql.execution.QueryExecution.org$apache$spark$sql$execution$QueryExecution$$explainString(QueryExecution.scala:284)
+	at org.apache.spark.sql.execution.QueryExecution.explainString(QueryExecution.scala:252)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:117)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4321)
+	at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+	at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+	at org.apache.spark.sql.Dataset.getRows(Dataset.scala:280)
+	at org.apache.spark.sql.Dataset.showString(Dataset.scala:315)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:505)
+	... 87 more
+
+[2024-12-26T09:57:11.417+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=vehicle_data_etl_pipeline, task_id=extract_raw_data, run_id=manual__2024-12-26T09:50:14.216023+00:00, execution_date=20241226T095014, start_date=20241226T095636, end_date=20241226T095711
+[2024-12-26T09:57:11.472+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T09:57:11.475+0000] {standard_task_runner.py:124} ERROR - Failed to execute job 46 for task extract_raw_data (An error occurred while calling o36.showString.
+: org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:553)
+	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchPartitionOffsets(KafkaOffsetReaderAdmin.scala:128)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.getOffsetRangesFromUnresolvedOffsets(KafkaOffsetReaderAdmin.scala:374)
+	at org.apache.spark.sql.kafka010.KafkaRelation.buildScan(KafkaRelation.scala:67)
+	at org.apache.spark.sql.execution.datasources.DataSourceStrategy$.apply(DataSourceStrategy.scala:356)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$1(QueryPlanner.scala:63)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$3(QueryPlanner.scala:78)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:196)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:194)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.foldLeft(TraversableOnce.scala:199)
+	at scala.collection.TraversableOnce.foldLeft$(TraversableOnce.scala:192)
+	at scala.collection.AbstractIterator.foldLeft(Iterator.scala:1431)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$2(QueryPlanner.scala:75)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$3(QueryPlanner.scala:78)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:196)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:194)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.foldLeft(TraversableOnce.scala:199)
+	at scala.collection.TraversableOnce.foldLeft$(TraversableOnce.scala:192)
+	at scala.collection.AbstractIterator.foldLeft(Iterator.scala:1431)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$2(QueryPlanner.scala:75)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.execution.QueryExecution$.createSparkPlan(QueryExecution.scala:496)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$sparkPlan$1(QueryExecution.scala:171)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:138)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:219)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:219)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:218)
+	at org.apache.spark.sql.execution.QueryExecution.sparkPlan$lzycompute(QueryExecution.scala:171)
+	at org.apache.spark.sql.execution.QueryExecution.sparkPlan(QueryExecution.scala:164)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executedPlan$1(QueryExecution.scala:186)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:138)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:219)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:219)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:218)
+	at org.apache.spark.sql.execution.QueryExecution.executedPlan$lzycompute(QueryExecution.scala:186)
+	at org.apache.spark.sql.execution.QueryExecution.executedPlan(QueryExecution.scala:179)
+	at org.apache.spark.sql.execution.QueryExecution.simpleString(QueryExecution.scala:238)
+	at org.apache.spark.sql.execution.QueryExecution.org$apache$spark$sql$execution$QueryExecution$$explainString(QueryExecution.scala:284)
+	at org.apache.spark.sql.execution.QueryExecution.explainString(QueryExecution.scala:252)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:117)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4321)
+	at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+	at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+	at org.apache.spark.sql.Dataset.getRows(Dataset.scala:280)
+	at org.apache.spark.sql.Dataset.showString(Dataset.scala:315)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:505)
+	... 87 more
+; 11813)
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/task/task_runner/standard_task_runner.py", line 117, in _start_by_fork
+    ret = args.func(args, dag=self.dag)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/cli_config.py", line 49, in command
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/cli.py", line 116, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 483, in task_run
+    task_return_code = _run_task_by_selected_method(args, _dag, ti)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 256, in _run_task_by_selected_method
+    return _run_raw_task(args, ti)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/cli/commands/task_command.py", line 341, in _run_raw_task
+    return ti._run_raw_task(
+           ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/session.py", line 97, in wrapper
+    return func(*args, session=session, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3005, in _run_raw_task
+    return _run_raw_task(
+           ^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 273, in _run_raw_task
+    TaskInstance._execute_task_with_callbacks(
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3159, in _execute_task_with_callbacks
+    result = self._execute_task(context, task_orig)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3183, in _execute_task
+    return _execute_task(self, context, task_orig)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/batchVehiculeProcessing.py", line 60, in extract_raw_data
+    raw_df.show()
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 947, in show
+    print(self._show_string(n, truncate, vertical))
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/dataframe.py", line 965, in _show_string
+    return self._jdf.showString(n, 20, vertical)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1322, in __call__
+    return_value = get_return_value(
+                   ^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/errors/exceptions/captured.py", line 179, in deco
+    return f(*a, **kw)
+           ^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/protocol.py", line 326, in get_return_value
+    raise Py4JJavaError(
+py4j.protocol.Py4JJavaError: An error occurred while calling o36.showString.
+: org.apache.kafka.common.KafkaException: Failed to create new KafkaAdminClient
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:553)
+	at org.apache.kafka.clients.admin.Admin.create(Admin.java:144)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin(ConsumerStrategy.scala:50)
+	at org.apache.spark.sql.kafka010.ConsumerStrategy.createAdmin$(ConsumerStrategy.scala:47)
+	at org.apache.spark.sql.kafka010.SubscribeStrategy.createAdmin(ConsumerStrategy.scala:102)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.admin(KafkaOffsetReaderAdmin.scala:70)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.fetchPartitionOffsets(KafkaOffsetReaderAdmin.scala:128)
+	at org.apache.spark.sql.kafka010.KafkaOffsetReaderAdmin.getOffsetRangesFromUnresolvedOffsets(KafkaOffsetReaderAdmin.scala:374)
+	at org.apache.spark.sql.kafka010.KafkaRelation.buildScan(KafkaRelation.scala:67)
+	at org.apache.spark.sql.execution.datasources.DataSourceStrategy$.apply(DataSourceStrategy.scala:356)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$1(QueryPlanner.scala:63)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:491)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$3(QueryPlanner.scala:78)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:196)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:194)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.foldLeft(TraversableOnce.scala:199)
+	at scala.collection.TraversableOnce.foldLeft$(TraversableOnce.scala:192)
+	at scala.collection.AbstractIterator.foldLeft(Iterator.scala:1431)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$2(QueryPlanner.scala:75)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$3(QueryPlanner.scala:78)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:196)
+	at scala.collection.TraversableOnce$folder$1.apply(TraversableOnce.scala:194)
+	at scala.collection.Iterator.foreach(Iterator.scala:943)
+	at scala.collection.Iterator.foreach$(Iterator.scala:943)
+	at scala.collection.AbstractIterator.foreach(Iterator.scala:1431)
+	at scala.collection.TraversableOnce.foldLeft(TraversableOnce.scala:199)
+	at scala.collection.TraversableOnce.foldLeft$(TraversableOnce.scala:192)
+	at scala.collection.AbstractIterator.foldLeft(Iterator.scala:1431)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.$anonfun$plan$2(QueryPlanner.scala:75)
+	at scala.collection.Iterator$$anon$11.nextCur(Iterator.scala:486)
+	at scala.collection.Iterator$$anon$11.hasNext(Iterator.scala:492)
+	at org.apache.spark.sql.catalyst.planning.QueryPlanner.plan(QueryPlanner.scala:93)
+	at org.apache.spark.sql.execution.SparkStrategies.plan(SparkStrategies.scala:70)
+	at org.apache.spark.sql.execution.QueryExecution$.createSparkPlan(QueryExecution.scala:496)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$sparkPlan$1(QueryExecution.scala:171)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:138)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:219)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:219)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:218)
+	at org.apache.spark.sql.execution.QueryExecution.sparkPlan$lzycompute(QueryExecution.scala:171)
+	at org.apache.spark.sql.execution.QueryExecution.sparkPlan(QueryExecution.scala:164)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executedPlan$1(QueryExecution.scala:186)
+	at org.apache.spark.sql.catalyst.QueryPlanningTracker.measurePhase(QueryPlanningTracker.scala:138)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$2(QueryExecution.scala:219)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:546)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$executePhase$1(QueryExecution.scala:219)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.QueryExecution.executePhase(QueryExecution.scala:218)
+	at org.apache.spark.sql.execution.QueryExecution.executedPlan$lzycompute(QueryExecution.scala:186)
+	at org.apache.spark.sql.execution.QueryExecution.executedPlan(QueryExecution.scala:179)
+	at org.apache.spark.sql.execution.QueryExecution.simpleString(QueryExecution.scala:238)
+	at org.apache.spark.sql.execution.QueryExecution.org$apache$spark$sql$execution$QueryExecution$$explainString(QueryExecution.scala:284)
+	at org.apache.spark.sql.execution.QueryExecution.explainString(QueryExecution.scala:252)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$6(SQLExecution.scala:117)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:201)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId$1(SQLExecution.scala:108)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:900)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:66)
+	at org.apache.spark.sql.Dataset.withAction(Dataset.scala:4321)
+	at org.apache.spark.sql.Dataset.head(Dataset.scala:3316)
+	at org.apache.spark.sql.Dataset.take(Dataset.scala:3539)
+	at org.apache.spark.sql.Dataset.getRows(Dataset.scala:280)
+	at org.apache.spark.sql.Dataset.showString(Dataset.scala:315)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.waitForCommands(ClientServerConnection.java:182)
+	at py4j.ClientServerConnection.run(ClientServerConnection.java:106)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.apache.kafka.common.config.ConfigException: No resolvable bootstrap urls given in bootstrap.servers
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:89)
+	at org.apache.kafka.clients.ClientUtils.parseAndValidateAddresses(ClientUtils.java:48)
+	at org.apache.kafka.clients.admin.KafkaAdminClient.createInternal(KafkaAdminClient.java:505)
+	... 87 more
+
+[2024-12-26T09:57:11.546+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 1
+[2024-12-26T09:57:11.600+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-26T09:57:11.639+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

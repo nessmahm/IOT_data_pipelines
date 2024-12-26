@@ -1,0 +1,45 @@
+[2024-12-26T09:48:45.361+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T09:48:45.397+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vehicle_data_etl_pipeline.load_to_data_warehouse manual__2024-12-26T09:46:06.023187+00:00 [queued]>
+[2024-12-26T09:48:45.421+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vehicle_data_etl_pipeline.load_to_data_warehouse manual__2024-12-26T09:46:06.023187+00:00 [queued]>
+[2024-12-26T09:48:45.423+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-26T09:48:45.454+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): load_to_data_warehouse> on 2024-12-26 09:46:06.023187+00:00
+[2024-12-26T09:48:45.464+0000] {standard_task_runner.py:72} INFO - Started process 8966 to run task
+[2024-12-26T09:48:45.471+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'vehicle_data_etl_pipeline', 'load_to_data_warehouse', 'manual__2024-12-26T09:46:06.023187+00:00', '--job-id', '37', '--raw', '--subdir', 'DAGS_FOLDER/batchVehiculeProcessing.py', '--cfg-path', '/tmp/tmp4ges5aq0']
+[2024-12-26T09:48:45.478+0000] {standard_task_runner.py:105} INFO - Job 37: Subtask load_to_data_warehouse
+[2024-12-26T09:48:45.575+0000] {task_command.py:467} INFO - Running <TaskInstance: vehicle_data_etl_pipeline.load_to_data_warehouse manual__2024-12-26T09:46:06.023187+00:00 [running]> on host 3096e710f899
+[2024-12-26T09:48:45.853+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='vehicle_data_etl_pipeline' AIRFLOW_CTX_TASK_ID='load_to_data_warehouse' AIRFLOW_CTX_EXECUTION_DATE='2024-12-26T09:46:06.023187+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-26T09:46:06.023187+00:00'
+[2024-12-26T09:48:45.857+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T09:49:11.013+0000] {logging_mixin.py:190} INFO - Spark session created !
+[2024-12-26T09:49:35.270+0000] {logging_mixin.py:190} INFO - +------------+---------+-----------------+-----------+
+|vehicle_type|avg_speed|avg_trip_duration|total_trips|
++------------+---------+-----------------+-----------+
+|     Bicycle|    52.81|           2480.0|          3|
+|         Car|    48.92|           3405.0|         12|
+|       Truck|    53.19|           3800.0|          9|
+|         Bus|    40.22|           3960.0|          1|
+|   Motorbike|    51.26|           3655.0|         75|
++------------+---------+-----------------+-----------+
+[2024-12-26T09:49:36.230+0000] {logging_mixin.py:190} INFO - +-------------------+---------------+--------------+-------------+---------+
+|               hour|       district|          city|vehicle_count|avg_speed|
++-------------------+---------------+--------------+-------------+---------+
+|2024-04-01 00:00:00|Quan Binh Chanh|TP Ho Chi Minh|            4|    51.01|
+|2024-04-01 00:00:00|  Quan Binh Tan|TP Ho Chi Minh|            1|     49.5|
+|2024-04-01 00:00:00|         Quan 3|TP Ho Chi Minh|           12|    52.32|
+|2024-04-01 00:00:00|        Quan 10|TP Ho Chi Minh|            4|    47.88|
+|2024-04-01 00:00:00|         Quan 5|TP Ho Chi Minh|            3|    49.56|
+|2024-04-01 00:00:00|   Quan Thu Duc|TP Ho Chi Minh|            1|    50.64|
+|2024-04-01 00:00:00|         Quan 6|TP Ho Chi Minh|            1|    46.72|
+|2024-04-01 00:00:00| Quan Phu Nhuan|TP Ho Chi Minh|            1|    59.21|
+|2024-04-01 00:00:00|    Quan Go Vap|TP Ho Chi Minh|           15|    47.64|
+|2024-04-01 00:00:00|         Quan 1|TP Ho Chi Minh|           49|     51.9|
+|2024-04-01 00:00:00|Quan Binh Thanh|TP Ho Chi Minh|            6|    52.13|
+|2024-04-01 00:00:00|         Quan 2|TP Ho Chi Minh|            3|    53.34|
++-------------------+---------------+--------------+-------------+---------+
+[2024-12-26T09:49:36.233+0000] {logging_mixin.py:190} INFO - Load data to ELK !
+[2024-12-26T09:49:36.234+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-12-26T09:49:36.290+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T09:49:36.295+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vehicle_data_etl_pipeline, task_id=load_to_data_warehouse, run_id=manual__2024-12-26T09:46:06.023187+00:00, execution_date=20241226T094606, start_date=20241226T094845, end_date=20241226T094936
+[2024-12-26T09:49:36.366+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-12-26T09:49:36.448+0000] {dagrun.py:977} ERROR - Failed to get task for ti <TaskInstance: vehicle_data_etl_pipeline.transform_vehicule_alerts manual__2024-12-26T09:46:06.023187+00:00 [running]>. Marking it as removed.
+[2024-12-26T09:49:36.460+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-26T09:49:36.472+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

@@ -1,0 +1,18 @@
+[2024-12-26T08:56:33.014+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T08:56:33.049+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vehicle_data_streamer.end manual__2024-12-26T08:54:43.842123+00:00 [queued]>
+[2024-12-26T08:56:33.066+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vehicle_data_streamer.end manual__2024-12-26T08:54:43.842123+00:00 [queued]>
+[2024-12-26T08:56:33.069+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-26T08:56:33.093+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): end> on 2024-12-26 08:54:43.842123+00:00
+[2024-12-26T08:56:33.102+0000] {standard_task_runner.py:72} INFO - Started process 672 to run task
+[2024-12-26T08:56:33.110+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'vehicle_data_streamer', 'end', 'manual__2024-12-26T08:54:43.842123+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/vehicle_data_streamer.py', '--cfg-path', '/tmp/tmpb0kvf1wu']
+[2024-12-26T08:56:33.116+0000] {standard_task_runner.py:105} INFO - Job 9: Subtask end
+[2024-12-26T08:56:33.228+0000] {task_command.py:467} INFO - Running <TaskInstance: vehicle_data_streamer.end manual__2024-12-26T08:54:43.842123+00:00 [running]> on host 3096e710f899
+[2024-12-26T08:56:33.380+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='vehicle_data_streamer' AIRFLOW_CTX_TASK_ID='end' AIRFLOW_CTX_EXECUTION_DATE='2024-12-26T08:54:43.842123+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-26T08:54:43.842123+00:00'
+[2024-12-26T08:56:33.382+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T08:56:33.387+0000] {logging_mixin.py:190} INFO - Jobs Ended
+[2024-12-26T08:56:33.389+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-12-26T08:56:33.406+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T08:56:33.409+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vehicle_data_streamer, task_id=end, run_id=manual__2024-12-26T08:54:43.842123+00:00, execution_date=20241226T085443, start_date=20241226T085633, end_date=20241226T085633
+[2024-12-26T08:56:33.447+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-12-26T08:56:33.478+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-26T08:56:33.484+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

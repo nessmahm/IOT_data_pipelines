@@ -1,0 +1,60 @@
+[2024-12-26T09:23:24.829+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T09:23:24.880+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vehicle_data_etl_pipeline.load_to_data_warehouse manual__2024-12-26T09:23:22.406354+00:00 [queued]>
+[2024-12-26T09:23:24.909+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vehicle_data_etl_pipeline.load_to_data_warehouse manual__2024-12-26T09:23:22.406354+00:00 [queued]>
+[2024-12-26T09:23:24.913+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-26T09:23:24.964+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): load_to_data_warehouse> on 2024-12-26 09:23:22.406354+00:00
+[2024-12-26T09:23:24.974+0000] {standard_task_runner.py:72} INFO - Started process 4555 to run task
+[2024-12-26T09:23:24.981+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'vehicle_data_etl_pipeline', 'load_to_data_warehouse', 'manual__2024-12-26T09:23:22.406354+00:00', '--job-id', '26', '--raw', '--subdir', 'DAGS_FOLDER/batchVehiculeProcessing.py', '--cfg-path', '/tmp/tmpw6i8tu30']
+[2024-12-26T09:23:24.992+0000] {standard_task_runner.py:105} INFO - Job 26: Subtask load_to_data_warehouse
+[2024-12-26T09:23:25.116+0000] {task_command.py:467} INFO - Running <TaskInstance: vehicle_data_etl_pipeline.load_to_data_warehouse manual__2024-12-26T09:23:22.406354+00:00 [running]> on host 3096e710f899
+[2024-12-26T09:23:25.395+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='vehicle_data_etl_pipeline' AIRFLOW_CTX_TASK_ID='load_to_data_warehouse' AIRFLOW_CTX_EXECUTION_DATE='2024-12-26T09:23:22.406354+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2024-12-26T09:23:22.406354+00:00'
+[2024-12-26T09:23:25.399+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T09:23:42.479+0000] {logging_mixin.py:190} INFO - Spark session created !
+[2024-12-26T09:24:01.020+0000] {logging_mixin.py:190} INFO - +----------+------------+------------------+--------------------+-----------------+-----------+
+|vehicle_id|vehicle_type|         avg_speed|avg_fuel_consumption|avg_trip_duration|total_trips|
++----------+------------+------------------+--------------------+-----------------+-----------+
+|   VH11294|   Motorbike|54.125308990478516|                NULL|           3960.0|          1|
+|   VH13624|   Motorbike| 47.19331359863281|                NULL|           2220.0|          1|
+|   VH15411|         Car|  59.2074089050293|                NULL|           5100.0|          1|
+|   VH15643|   Motorbike| 51.28059768676758|                NULL|           2640.0|          1|
+|   VH15733|   Motorbike| 53.29401397705078|                NULL|           4200.0|          1|
+|   VH17359|         Car| 50.90837478637695|                NULL|           2400.0|          1|
+|   VH19148|       Truck|  55.2441520690918|                NULL|           2280.0|          1|
+|   VH20095|       Truck|52.246280670166016|                NULL|           4200.0|          1|
+|   VH22490|   Motorbike| 54.96541213989258|                NULL|           2280.0|          1|
+|   VH22732|     Bicycle|  48.2994499206543|                NULL|           2280.0|          1|
+|   VH23418|   Motorbike| 58.96848678588867|                NULL|           3780.0|          1|
+|   VH23804|   Motorbike| 44.98515701293945|                NULL|           4860.0|          1|
+|   VH24230|   Motorbike| 48.13556671142578|                NULL|           3120.0|          1|
+|   VH26284|   Motorbike|45.067203521728516|                NULL|           1920.0|          1|
+|   VH27219|   Motorbike| 52.72209930419922|                NULL|           3240.0|          1|
+|   VH28099|         Car|43.983123779296875|                NULL|           2580.0|          1|
+|   VH28634|   Motorbike|  55.0267219543457|                NULL|           3060.0|          1|
+|   VH31425|   Motorbike| 46.82497787475586|                NULL|           2400.0|          1|
+|   VH33863|   Motorbike|45.412715911865234|                NULL|           1860.0|          1|
+|   VH34147|   Motorbike| 55.09880447387695|                NULL|           4080.0|          1|
++----------+------------+------------------+--------------------+-----------------+-----------+
+only showing top 20 rows
+[2024-12-26T09:24:01.951+0000] {logging_mixin.py:190} INFO - +-------------------+---------------+--------------+-------------+------------------+-------------------+
+|               hour|       district|          city|vehicle_count|         avg_speed|   congestion_index|
++-------------------+---------------+--------------+-------------+------------------+-------------------+
+|2024-04-01 00:00:00|Quan Binh Chanh|TP Ho Chi Minh|            4| 51.01252746582031|               0.25|
+|2024-04-01 00:00:00|  Quan Binh Tan|TP Ho Chi Minh|            1| 49.49946975708008|                0.0|
+|2024-04-01 00:00:00|         Quan 3|TP Ho Chi Minh|           12|52.320279121398926|0.08333333333333333|
+|2024-04-01 00:00:00|        Quan 10|TP Ho Chi Minh|            4| 47.88088798522949|               0.75|
+|2024-04-01 00:00:00|         Quan 5|TP Ho Chi Minh|            3|49.564334869384766|                0.0|
+|2024-04-01 00:00:00|   Quan Thu Duc|TP Ho Chi Minh|            1| 50.64166259765625|                0.0|
+|2024-04-01 00:00:00|         Quan 6|TP Ho Chi Minh|            1| 46.71562576293945|                0.0|
+|2024-04-01 00:00:00| Quan Phu Nhuan|TP Ho Chi Minh|            1|  59.2074089050293|                0.0|
+|2024-04-01 00:00:00|    Quan Go Vap|TP Ho Chi Minh|           15| 47.64042434692383| 0.3333333333333333|
+|2024-04-01 00:00:00|         Quan 1|TP Ho Chi Minh|           49|51.898581602135486|0.30612244897959184|
+|2024-04-01 00:00:00|Quan Binh Thanh|TP Ho Chi Minh|            6|52.126546223958336|0.16666666666666666|
+|2024-04-01 00:00:00|         Quan 2|TP Ho Chi Minh|            3| 53.33917999267578| 0.3333333333333333|
++-------------------+---------------+--------------+-------------+------------------+-------------------+
+[2024-12-26T09:24:01.956+0000] {logging_mixin.py:190} INFO - Load data to ELK !
+[2024-12-26T09:24:01.958+0000] {python.py:240} INFO - Done. Returned value was: None
+[2024-12-26T09:24:01.987+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T09:24:01.991+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vehicle_data_etl_pipeline, task_id=load_to_data_warehouse, run_id=manual__2024-12-26T09:23:22.406354+00:00, execution_date=20241226T092322, start_date=20241226T092324, end_date=20241226T092401
+[2024-12-26T09:24:02.071+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-12-26T09:24:02.135+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-26T09:24:02.155+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

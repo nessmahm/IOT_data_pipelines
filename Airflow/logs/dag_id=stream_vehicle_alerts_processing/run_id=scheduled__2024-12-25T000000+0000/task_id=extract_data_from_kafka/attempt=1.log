@@ -1,0 +1,19 @@
+[2024-12-26T08:58:00.095+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T08:58:00.149+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: stream_vehicle_alerts_processing.extract_data_from_kafka scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T08:58:00.175+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: stream_vehicle_alerts_processing.extract_data_from_kafka scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T08:58:00.178+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-26T08:58:00.226+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): extract_data_from_kafka> on 2024-12-25 00:00:00+00:00
+[2024-12-26T08:58:00.235+0000] {standard_task_runner.py:72} INFO - Started process 770 to run task
+[2024-12-26T08:58:00.245+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'stream_vehicle_alerts_processing', 'extract_data_from_kafka', 'scheduled__2024-12-25T00:00:00+00:00', '--job-id', '11', '--raw', '--subdir', 'DAGS_FOLDER/streamVehiculeAlertsProcessing.py', '--cfg-path', '/tmp/tmper2t8rtw']
+[2024-12-26T08:58:00.261+0000] {standard_task_runner.py:105} INFO - Job 11: Subtask extract_data_from_kafka
+[2024-12-26T08:58:00.429+0000] {task_command.py:467} INFO - Running <TaskInstance: stream_vehicle_alerts_processing.extract_data_from_kafka scheduled__2024-12-25T00:00:00+00:00 [running]> on host 3096e710f899
+[2024-12-26T08:58:00.655+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='stream_vehicle_alerts_processing' AIRFLOW_CTX_TASK_ID='extract_data_from_kafka' AIRFLOW_CTX_EXECUTION_DATE='2024-12-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-25T00:00:00+00:00'
+[2024-12-26T08:58:00.658+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T09:02:58.494+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to success. Terminating instance.
+[2024-12-26T09:02:58.497+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-12-26T09:02:58.532+0000] {process_utils.py:132} INFO - Sending 15 to group 770. PIDs of all processes in the group: [772, 770]
+[2024-12-26T09:02:58.535+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 770
+[2024-12-26T09:02:58.538+0000] {taskinstance.py:3093} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-12-26T09:02:58.599+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T09:02:58.944+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=772, status='terminated', started='08:57:59') (772) terminated with exit code None
+[2024-12-26T09:02:58.949+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=770, status='terminated', exitcode=0, started='08:57:59') (770) terminated with exit code 0
