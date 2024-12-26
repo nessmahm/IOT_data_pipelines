@@ -1,9 +1,10 @@
 from airflow.decorators import dag, task
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
-from datetime import datetime, timedelta
-vehicle_metrics_path = "/tmp/vehicle_metrics"
-traffic_analysis_path = "/tmp/traffic_analysis"
+from datetime import datetime
+from elasticsearch import Elasticsearch
+from pyspark.sql.functions import to_json, struct
+
 vehicule_schema = """
                     vehicle_id STRING,
                     owner STRUCT<name STRING, license_number STRING, contact_info STRUCT<phone STRING, email STRING>>,
@@ -31,6 +32,20 @@ def create_spark_session():
             .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.4.0")
             .getOrCreate())
 
+
+def load_to_elasticsearch(df, index_name):
+    try:
+        print("Start Loding into Elasticsearch",{index_name})
+        es = Elasticsearch(["http://elasticsearch:9200"])
+        print("Elasticsearch connection established")
+        print(es.info())
+        df = df.withColumn("json_data", to_json(struct("*")))  # Convert to JSON format
+        for row in df.collect():
+            print("index_name", row["json_data"])
+            es.index(index=index_name,  body=row["json_data"])
+        print(f"Data inserted succeffully into {index_name} Elasticsearch")
+    except Exception as e:
+        print("Error occured while loading to elasticsearch",index_name, str(e))
 
 @dag(
     dag_id="vehicule_data_processing",
@@ -129,6 +144,7 @@ def vehicle_etl_workflow():
                 F.round(F.avg("trip_duration")).alias("avg_trip_duration"),
                 F.count("*").alias("total_trips")
             )
+            metrics_df = metrics_df.withColumn("id", F.monotonically_increasing_id())
             metrics_df.show()
 
             output_path = "/tmp/vehicle_metrics"
@@ -157,6 +173,7 @@ def vehicle_etl_workflow():
                 F.round(F.avg("speed_kmph"),2).alias("avg_speed"),
             )
 
+            traffic_df = traffic_df.withColumn("id", F.monotonically_increasing_id())
             traffic_df.show()
             output_path = "/tmp/traffic_analysis"
             traffic_df.write.mode("overwrite").parquet(output_path)
@@ -191,6 +208,7 @@ def vehicle_etl_workflow():
                 F.count("*").alias("alert_count"),
                 F.collect_list("description").alias("descriptions")
             )
+            summary_df = summary_df.withColumn("id", F.monotonically_increasing_id())
             summary_df.show()
             # Save results
             output_path = "/tmp/alerts_summary"
@@ -211,11 +229,12 @@ def vehicle_etl_workflow():
             metrics_df = spark.read.parquet(vehicle_metrics_path)
             traffic_df = spark.read.parquet(traffic_analysis_path)
             alerts_df = spark.read.parquet(alerts_analaysis_path)
-
-            metrics_df.show()
+            """metrics_df.show()
             traffic_df.show()
-            alerts_df.show()
-            print('Load data to ELK !')
+            alerts_df.show()"""
+            load_to_elasticsearch(alerts_df,"alerts_index")
+            load_to_elasticsearch(metrics_df,"metrics_index")
+            load_to_elasticsearch(traffic_df,"traffic_df")
         except Exception as e:
             print(f"Error loading: {str(e)}")
 

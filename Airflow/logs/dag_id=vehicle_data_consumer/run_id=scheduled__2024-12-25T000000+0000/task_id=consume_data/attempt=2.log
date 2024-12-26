@@ -1,0 +1,112 @@
+[2024-12-26T10:33:27.350+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T10:33:27.382+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vehicle_data_consumer.consume_data scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T10:33:27.402+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vehicle_data_consumer.consume_data scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T10:33:27.404+0000] {taskinstance.py:2866} INFO - Starting attempt 2 of 2
+[2024-12-26T10:33:27.433+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): consume_data> on 2024-12-25 00:00:00+00:00
+[2024-12-26T10:33:27.441+0000] {standard_task_runner.py:72} INFO - Started process 2494 to run task
+[2024-12-26T10:33:27.447+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'vehicle_data_consumer', 'consume_data', 'scheduled__2024-12-25T00:00:00+00:00', '--job-id', '136', '--raw', '--subdir', 'DAGS_FOLDER/vehicle_data_consumer.py', '--cfg-path', '/tmp/tmpai1iiri7']
+[2024-12-26T10:33:27.453+0000] {standard_task_runner.py:105} INFO - Job 136: Subtask consume_data
+[2024-12-26T10:33:27.551+0000] {task_command.py:467} INFO - Running <TaskInstance: vehicle_data_consumer.consume_data scheduled__2024-12-25T00:00:00+00:00 [running]> on host 3096e710f899
+[2024-12-26T10:33:27.749+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='vehicle_data_consumer' AIRFLOW_CTX_TASK_ID='consume_data' AIRFLOW_CTX_EXECUTION_DATE='2024-12-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-25T00:00:00+00:00'
+[2024-12-26T10:33:27.753+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T10:33:27.761+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+[2024-12-26T10:33:27.764+0000] {conn.py:957} INFO - Probing node bootstrap-0 broker version
+[2024-12-26T10:33:27.768+0000] {conn.py:402} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+[2024-12-26T10:33:27.771+0000] {conn.py:673} ERROR - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2024-12-26T10:33:27.814+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+[2024-12-26T10:33:27.816+0000] {conn.py:402} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+[2024-12-26T10:33:27.818+0000] {conn.py:673} ERROR - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2024-12-26T10:33:27.866+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: connecting to localhost:9092 [('127.0.0.1', 9092) IPv4]
+[2024-12-26T10:33:27.868+0000] {conn.py:402} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]> returned error 111. Disconnecting.
+[2024-12-26T10:33:27.871+0000] {conn.py:673} ERROR - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv4 ('127.0.0.1', 9092)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2024-12-26T10:33:27.875+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: connecting to broker:29092 [('172.18.0.9', 29092) IPv4]
+[2024-12-26T10:33:27.878+0000] {conn.py:957} INFO - Probing node bootstrap-1 broker version
+[2024-12-26T10:33:27.881+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: Connection complete.
+[2024-12-26T10:33:27.993+0000] {conn.py:1019} INFO - Broker version identified as 2.6.0
+[2024-12-26T10:33:27.996+0000] {conn.py:1020} INFO - Set configuration api_version=(2, 6, 0) to skip auto check_version requests on startup
+[2024-12-26T10:33:28.001+0000] {subscription_state.py:167} INFO - Updating subscribed topics to: ('sensor_data',)
+[2024-12-26T10:33:28.005+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: connecting to localhost:9092 [('::1', 9092, 0, 0) IPv6]
+[2024-12-26T10:33:28.008+0000] {conn.py:402} ERROR - Connect attempt to <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]> returned error 111. Disconnecting.
+[2024-12-26T10:33:28.011+0000] {conn.py:673} ERROR - <BrokerConnection node_id=bootstrap-0 host=localhost:9092 <connecting> [IPv6 ('::1', 9092, 0, 0)]>: Closing connection. KafkaConnectionError: 111 ECONNREFUSED
+[2024-12-26T10:33:28.013+0000] {cluster.py:367} INFO - Group coordinator for vehicle_data_consumer is ('coordinator-1', 'broker', 29092, None)
+[2024-12-26T10:33:28.015+0000] {base.py:748} INFO - Discovered coordinator coordinator-1 for group vehicle_data_consumer
+[2024-12-26T10:33:28.018+0000] {base.py:796} INFO - Starting new heartbeat thread
+[2024-12-26T10:33:28.022+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:33:28.025+0000] {conn.py:362} INFO - <BrokerConnection node_id=coordinator-1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: connecting to broker:29092 [('172.18.0.9', 29092) IPv4]
+[2024-12-26T10:33:28.028+0000] {conn.py:393} INFO - <BrokerConnection node_id=coordinator-1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: Connection complete.
+[2024-12-26T10:33:28.031+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-1 host=broker:29092 <connected> [IPv4 ('172.18.0.9', 29092)]>: Closing connection. 
+[2024-12-26T10:33:28.134+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T10:33:28.139+0000] {conn.py:362} INFO - <BrokerConnection node_id=bootstrap-1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: connecting to broker:29092 [('172.18.0.9', 29092) IPv4]
+[2024-12-26T10:33:28.142+0000] {conn.py:393} INFO - <BrokerConnection node_id=bootstrap-1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: Connection complete.
+[2024-12-26T10:38:26.787+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 4
+[2024-12-26T10:38:26.791+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T10:38:26.793+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:38:28.206+0000] {conn.py:362} INFO - <BrokerConnection node_id=1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: connecting to broker:29092 [('172.18.0.9', 29092) IPv4]
+[2024-12-26T10:38:28.219+0000] {conn.py:393} INFO - <BrokerConnection node_id=1 host=broker:29092 <connecting> [IPv4 ('172.18.0.9', 29092)]>: Connection complete.
+[2024-12-26T10:38:28.222+0000] {conn.py:673} INFO - <BrokerConnection node_id=bootstrap-1 host=broker:29092 <connected> [IPv4 ('172.18.0.9', 29092)]>: Closing connection. 
+[2024-12-26T10:38:32.804+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T10:38:32.809+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:38:32.811+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T10:43:26.900+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T10:43:26.913+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 5
+[2024-12-26T10:43:26.916+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T10:43:26.919+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:43:32.928+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T10:43:32.931+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:43:32.934+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T10:48:26.943+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T10:48:26.950+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 6
+[2024-12-26T10:48:26.959+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T10:48:26.961+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:48:29.972+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T10:48:29.974+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:48:29.976+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T10:53:26.983+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T10:53:26.989+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 7
+[2024-12-26T10:53:26.991+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T10:53:26.993+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:53:33.021+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T10:53:33.024+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:53:33.027+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T10:58:27.040+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T10:58:27.049+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 8
+[2024-12-26T10:58:27.052+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T10:58:27.054+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:58:33.091+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T10:58:33.094+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T10:58:33.096+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T11:03:27.088+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T11:03:27.096+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 9
+[2024-12-26T11:03:27.098+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T11:03:27.100+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:03:33.110+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T11:03:33.111+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:03:33.114+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T11:08:27.228+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T11:08:27.244+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 10
+[2024-12-26T11:08:27.248+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T11:08:27.251+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:08:30.265+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T11:08:30.293+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:08:30.310+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T11:13:27.343+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T11:13:27.349+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 11
+[2024-12-26T11:13:27.352+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T11:13:27.354+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:13:30.364+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T11:13:30.365+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:13:30.367+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T11:18:27.373+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T11:18:27.378+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 12
+[2024-12-26T11:18:27.380+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T11:18:27.383+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:18:30.414+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T11:18:30.417+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:18:30.418+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
+[2024-12-26T11:23:27.494+0000] {base.py:548} INFO - Elected group leader -- performing partition assignments using range
+[2024-12-26T11:23:27.514+0000] {base.py:344} INFO - Successfully joined group vehicle_data_consumer with generation 13
+[2024-12-26T11:23:27.536+0000] {subscription_state.py:253} INFO - Updated partition assignment: []
+[2024-12-26T11:23:27.559+0000] {consumer.py:249} INFO - Setting newly assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:23:33.563+0000] {base.py:904} WARNING - Heartbeat failed for group vehicle_data_consumer because it is rebalancing
+[2024-12-26T11:23:33.568+0000] {consumer.py:357} INFO - Revoking previously assigned partitions () for group vehicle_data_consumer
+[2024-12-26T11:23:33.572+0000] {base.py:459} INFO - (Re-)joining group vehicle_data_consumer
