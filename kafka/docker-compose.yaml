@@ -46,6 +46,7 @@ services:
       CONFLUENT_METRICS_REPORTER_TOPIC_REPLICAS: 1
       CONFLUENT_METRICS_ENABLE: 'false'
       CONFLUENT_SUPPORT_CUSTOMER_ID: 'anonymous'
+
     networks:
       - confluent
 
@@ -107,3 +108,5 @@ services:
 
 networks:
   confluent:
+    external: true  # This tells Docker Compose to use an existing network
+    name: confluent
