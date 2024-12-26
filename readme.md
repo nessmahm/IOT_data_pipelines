@@ -1,6 +1,9 @@
 # Vehicle Data ETL Pipeline
 
-This project focuses on building an ETL (Extract, Transform, Load) pipeline to process and analyze vehicle data in real-time. The pipeline integrates data from Kafka, processes it with Apache Spark, and stores the transformed data in Elasticsearch. By leveraging modern data engineering tools, the project facilitates real-time insights into vehicle metrics, traffic patterns, and alerts.
+This project focuses on building an ETL (Extract, Transform, Load) pipeline to process and analyze vehicle data. The pipeline integrates data from Kafka, processes it with Apache Spark, and stores the transformed data in Elasticsearch.  
+By leveraging modern data engineering tools, the project facilitates real-time insights into vehicle metrics, traffic patterns, and alerts.  
+
+This project handles the creation and integration of Kafka, Airflow, and ELK (Elasticsearch, Logstash, and Kibana). It manages these components, ensuring seamless communication between them. Additionally, it sets up ELK with Kibana for data visualization and analysis, allowing for efficient and detailed exploration of the data.
 
 ## Project Overview
 
@@ -35,8 +38,6 @@ The Vehicle Data ETL Pipeline is designed to manage vehicle data from ingestion 
 3. **Data Transformation:**
    - Key metrics like average speed, trip duration, and vehicle count are calculated.
    - Alerts from vehicles are processed and aggregated by severity and type.
-
-4. **Traffic Analysis:**
    - The pipeline derives insights into traffic patterns based on time, location, and vehicle activity.
 
 5. **Data Storage:**
@@ -58,6 +59,8 @@ The Vehicle Data ETL Pipeline is designed to manage vehicle data from ingestion 
 
 - **Visualization-Ready Data:**
   - Integrates seamlessly with tools like Kibana for creating dashboards and visual reports.
+    ![ETL Pipeline](Vehicule_data_pipeline.png)
+
 
 ---
 ## Usage Scenarios
