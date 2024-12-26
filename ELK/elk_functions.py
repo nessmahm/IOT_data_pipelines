@@ -81,3 +81,11 @@ def create_summary_index():
 def fetch_elk_indexs():
     indices = es.indices.get_alias("*")
     print(indices.keys())
+
+def remove_index_from_elk(index_name):
+    if es.indices.exists(index=index_name):
+        es.indices.delete(index=index_name)
+        print(f"Index '{index_name}' deleted successfully.")
+    else:
+        print(f"Index '{index_name}' does not exist.")
+
