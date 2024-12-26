@@ -1,0 +1,34 @@
+[2024-12-26T10:30:36.484+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T10:30:36.544+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vehicule_data_processing.transform_traffic_analysis scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T10:30:36.582+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vehicule_data_processing.transform_traffic_analysis scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T10:30:36.585+0000] {taskinstance.py:2866} INFO - Starting attempt 1 of 1
+[2024-12-26T10:30:36.654+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): transform_traffic_analysis> on 2024-12-25 00:00:00+00:00
+[2024-12-26T10:30:36.673+0000] {standard_task_runner.py:72} INFO - Started process 1016 to run task
+[2024-12-26T10:30:36.702+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'vehicule_data_processing', 'transform_traffic_analysis', 'scheduled__2024-12-25T00:00:00+00:00', '--job-id', '124', '--raw', '--subdir', 'DAGS_FOLDER/batchVehiculeProcessing.py', '--cfg-path', '/tmp/tmpwbssva8r']
+[2024-12-26T10:30:36.715+0000] {standard_task_runner.py:105} INFO - Job 124: Subtask transform_traffic_analysis
+[2024-12-26T10:30:36.864+0000] {task_command.py:467} INFO - Running <TaskInstance: vehicule_data_processing.transform_traffic_analysis scheduled__2024-12-25T00:00:00+00:00 [running]> on host 3096e710f899
+[2024-12-26T10:30:37.152+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='vehicule_data_processing' AIRFLOW_CTX_TASK_ID='transform_traffic_analysis' AIRFLOW_CTX_EXECUTION_DATE='2024-12-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-25T00:00:00+00:00'
+[2024-12-26T10:30:37.165+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T10:31:02.915+0000] {logging_mixin.py:190} INFO - Spark session created !
+[2024-12-26T10:31:31.287+0000] {logging_mixin.py:190} INFO - +-------------------+---------------+--------------+-------------+---------+
+|               hour|       district|          city|vehicle_count|avg_speed|
++-------------------+---------------+--------------+-------------+---------+
+|2024-04-01 00:00:00|Quan Binh Chanh|TP Ho Chi Minh|            4|    51.01|
+|2024-04-01 00:00:00|  Quan Binh Tan|TP Ho Chi Minh|            1|     49.5|
+|2024-04-01 00:00:00|         Quan 3|TP Ho Chi Minh|           12|    52.32|
+|2024-04-01 00:00:00|        Quan 10|TP Ho Chi Minh|            4|    47.88|
+|2024-04-01 00:00:00|         Quan 5|TP Ho Chi Minh|            3|    49.56|
+|2024-04-01 00:00:00|   Quan Thu Duc|TP Ho Chi Minh|            1|    50.64|
+|2024-04-01 00:00:00|         Quan 6|TP Ho Chi Minh|            1|    46.72|
+|2024-04-01 00:00:00| Quan Phu Nhuan|TP Ho Chi Minh|            1|    59.21|
+|2024-04-01 00:00:00|    Quan Go Vap|TP Ho Chi Minh|           15|    47.64|
+|2024-04-01 00:00:00|         Quan 1|TP Ho Chi Minh|           49|     51.9|
+|2024-04-01 00:00:00|Quan Binh Thanh|TP Ho Chi Minh|            6|    52.13|
+|2024-04-01 00:00:00|         Quan 2|TP Ho Chi Minh|            3|    53.34|
++-------------------+---------------+--------------+-------------+---------+
+[2024-12-26T10:31:35.163+0000] {python.py:240} INFO - Done. Returned value was: /tmp/traffic_analysis
+[2024-12-26T10:31:35.733+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T10:31:35.736+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=vehicule_data_processing, task_id=transform_traffic_analysis, run_id=scheduled__2024-12-25T00:00:00+00:00, execution_date=20241225T000000, start_date=20241226T103036, end_date=20241226T103135
+[2024-12-26T10:31:35.829+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2024-12-26T10:31:35.979+0000] {taskinstance.py:3895} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-12-26T10:31:36.035+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

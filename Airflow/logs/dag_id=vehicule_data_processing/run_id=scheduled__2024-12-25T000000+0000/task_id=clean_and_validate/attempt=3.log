@@ -1,0 +1,83 @@
+[2024-12-26T10:33:59.781+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2024-12-26T10:33:59.861+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: vehicule_data_processing.clean_and_validate scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T10:33:59.943+0000] {taskinstance.py:2613} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: vehicule_data_processing.clean_and_validate scheduled__2024-12-25T00:00:00+00:00 [queued]>
+[2024-12-26T10:33:59.957+0000] {taskinstance.py:2866} INFO - Starting attempt 3 of 3
+[2024-12-26T10:34:00.014+0000] {taskinstance.py:2889} INFO - Executing <Task(_PythonDecoratedOperator): clean_and_validate> on 2024-12-25 00:00:00+00:00
+[2024-12-26T10:34:00.038+0000] {standard_task_runner.py:72} INFO - Started process 2731 to run task
+[2024-12-26T10:34:00.064+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'vehicule_data_processing', 'clean_and_validate', 'scheduled__2024-12-25T00:00:00+00:00', '--job-id', '138', '--raw', '--subdir', 'DAGS_FOLDER/batchVehiculeProcessing.py', '--cfg-path', '/tmp/tmp_l9efhua']
+[2024-12-26T10:34:00.093+0000] {standard_task_runner.py:105} INFO - Job 138: Subtask clean_and_validate
+[2024-12-26T10:34:00.270+0000] {task_command.py:467} INFO - Running <TaskInstance: vehicule_data_processing.clean_and_validate scheduled__2024-12-25T00:00:00+00:00 [running]> on host 3096e710f899
+[2024-12-26T10:34:00.634+0000] {taskinstance.py:3132} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='vehicule_data_processing' AIRFLOW_CTX_TASK_ID='clean_and_validate' AIRFLOW_CTX_EXECUTION_DATE='2024-12-25T00:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2024-12-25T00:00:00+00:00'
+[2024-12-26T10:34:00.644+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2024-12-26T10:34:10.251+0000] {local_task_job_runner.py:346} WARNING - State of this instance has been externally set to up_for_retry. Terminating instance.
+[2024-12-26T10:34:10.263+0000] {local_task_job_runner.py:245} INFO - ::endgroup::
+[2024-12-26T10:34:10.278+0000] {process_utils.py:132} INFO - Sending 15 to group 2731. PIDs of all processes in the group: [2739, 2731]
+[2024-12-26T10:34:10.280+0000] {process_utils.py:87} INFO - Sending the signal 15 to group 2731
+[2024-12-26T10:34:10.283+0000] {taskinstance.py:3093} ERROR - Received SIGTERM. Terminating subprocesses.
+[2024-12-26T10:34:10.325+0000] {taskinstance.py:3311} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 767, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/decorators/base.py", line 266, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 417, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/batchVehiculeProcessing.py", line 72, in clean_and_validate
+    spark = create_spark_session()
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/batchVehiculeProcessing.py", line 32, in create_spark_session
+    .getOrCreate())
+     ^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/sql/session.py", line 497, in getOrCreate
+    sc = SparkContext.getOrCreate(sparkConf)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/context.py", line 515, in getOrCreate
+    SparkContext(conf=conf or SparkConf())
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/context.py", line 203, in __init__
+    self._do_init(
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/context.py", line 296, in _do_init
+    self._jsc = jsc or self._initialize_context(self._conf._jconf)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/pyspark/context.py", line 421, in _initialize_context
+    return self._jvm.JavaSparkContext(jconf)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1586, in __call__
+    answer = self._gateway_client.send_command(command)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/java_gateway.py", line 1038, in send_command
+    response = connection.send_command(command)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/py4j/clientserver.py", line 511, in send_command
+    answer = smart_decode(self.stream.readline()[:-1])
+                          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/socket.py", line 718, in readinto
+    return self._sock.recv_into(b)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 3095, in signal_handler
+    raise AirflowTaskTerminated("Task received SIGTERM signal")
+airflow.exceptions.AirflowTaskTerminated: Task received SIGTERM signal
+[2024-12-26T10:34:10.345+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=vehicule_data_processing, task_id=clean_and_validate, run_id=scheduled__2024-12-25T00:00:00+00:00, execution_date=20241225T000000, start_date=20241226T103359, end_date=20241226T103410
+[2024-12-26T10:34:10.393+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2024-12-26T10:34:10.421+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=2731, status='terminated', exitcode=2, started='10:33:59') (2731) terminated with exit code 2
+[2024-12-26T10:34:10.840+0000] {process_utils.py:80} INFO - Process psutil.Process(pid=2739, status='terminated', started='10:34:00') (2739) terminated with exit code None
