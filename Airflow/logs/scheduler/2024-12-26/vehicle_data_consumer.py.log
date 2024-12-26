@@ -4411,3 +4411,24 @@
 [2024-12-26T14:44:15.988+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:15.988+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2024-12-26T14:44:16.096+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:16.095+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_consumer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
 [2024-12-26T14:44:16.157+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_consumer.py took 0.664 seconds
+[2024-12-26T14:44:46.306+0000] {processor.py:186} INFO - Started process (PID=15000) to work on /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:44:46.308+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/vehicle_data_consumer.py for tasks to queue
+[2024-12-26T14:44:46.314+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:46.312+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:44:46.623+0000] {processor.py:925} INFO - DAG(s) 'vehicle_data_consumer' retrieved from /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:44:46.678+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:46.678+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-12-26T14:44:46.732+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:46.731+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_consumer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
+[2024-12-26T14:44:46.771+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_consumer.py took 0.482 seconds
+[2024-12-26T14:45:17.475+0000] {processor.py:186} INFO - Started process (PID=15022) to work on /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:45:17.479+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/vehicle_data_consumer.py for tasks to queue
+[2024-12-26T14:45:17.484+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:17.482+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:45:17.943+0000] {processor.py:925} INFO - DAG(s) 'vehicle_data_consumer' retrieved from /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:45:18.025+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:18.024+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-12-26T14:45:18.114+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:18.114+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_consumer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
+[2024-12-26T14:45:18.181+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_consumer.py took 0.731 seconds
+[2024-12-26T14:45:49.048+0000] {processor.py:186} INFO - Started process (PID=15044) to work on /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:45:49.051+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/vehicle_data_consumer.py for tasks to queue
+[2024-12-26T14:45:49.055+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:49.054+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:45:49.427+0000] {processor.py:925} INFO - DAG(s) 'vehicle_data_consumer' retrieved from /opt/airflow/dags/vehicle_data_consumer.py
+[2024-12-26T14:45:49.494+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:49.493+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-12-26T14:45:49.582+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:49.581+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_consumer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
+[2024-12-26T14:45:49.639+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_consumer.py took 0.611 seconds

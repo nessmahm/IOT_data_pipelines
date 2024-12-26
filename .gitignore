@@ -1,2 +1,9 @@
 .env
 .idea
+Airflow/logs
+Airflow/config
+Airflow/plugins
+Airflow/data
+ELK/.env
+
+

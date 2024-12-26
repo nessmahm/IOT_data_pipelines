@@ -4404,3 +4404,24 @@
 [2024-12-26T14:44:16.103+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:16.103+0000] {dag.py:3239} INFO - Sync 1 DAGs
 [2024-12-26T14:44:16.216+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:16.215+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_streamer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
 [2024-12-26T14:44:16.279+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_streamer.py took 0.759 seconds
+[2024-12-26T14:44:46.873+0000] {processor.py:186} INFO - Started process (PID=15005) to work on /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:44:46.875+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/vehicle_data_streamer.py for tasks to queue
+[2024-12-26T14:44:46.879+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:46.878+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:44:47.128+0000] {processor.py:925} INFO - DAG(s) 'vehicle_data_streamer' retrieved from /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:44:47.166+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:47.165+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-12-26T14:44:47.204+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:44:47.204+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_streamer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
+[2024-12-26T14:44:47.234+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_streamer.py took 0.376 seconds
+[2024-12-26T14:45:17.490+0000] {processor.py:186} INFO - Started process (PID=15025) to work on /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:45:17.495+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/vehicle_data_streamer.py for tasks to queue
+[2024-12-26T14:45:17.501+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:17.499+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:45:17.960+0000] {processor.py:925} INFO - DAG(s) 'vehicle_data_streamer' retrieved from /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:45:18.041+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:18.040+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-12-26T14:45:18.147+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:18.147+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_streamer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
+[2024-12-26T14:45:18.206+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_streamer.py took 0.737 seconds
+[2024-12-26T14:45:49.070+0000] {processor.py:186} INFO - Started process (PID=15047) to work on /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:45:49.073+0000] {processor.py:914} INFO - Processing file /opt/airflow/dags/vehicle_data_streamer.py for tasks to queue
+[2024-12-26T14:45:49.078+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:49.077+0000] {dagbag.py:588} INFO - Filling up the DagBag from /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:45:49.438+0000] {processor.py:925} INFO - DAG(s) 'vehicle_data_streamer' retrieved from /opt/airflow/dags/vehicle_data_streamer.py
+[2024-12-26T14:45:49.506+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:49.506+0000] {dag.py:3239} INFO - Sync 1 DAGs
+[2024-12-26T14:45:49.581+0000] {logging_mixin.py:190} INFO - [2024-12-26T14:45:49.580+0000] {dag.py:4180} INFO - Setting next_dagrun for vehicle_data_streamer to 2024-12-26 00:00:00+00:00, run_after=2024-12-27 00:00:00+00:00
+[2024-12-26T14:45:49.646+0000] {processor.py:208} INFO - Processing /opt/airflow/dags/vehicle_data_streamer.py took 0.598 seconds
