@@ -88,4 +88,4 @@ def remove_index_from_elk(index_name):
         print(f"Index '{index_name}' deleted successfully.")
     else:
         print(f"Index '{index_name}' does not exist.")
-
+print(fetch_elk_indexs())
