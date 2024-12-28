@@ -67,8 +67,6 @@ def iot_data():
                 time.sleep(1)
 
                 index += 1
-                if index >= 100:  # Process a maximum of 100 records for this run (optional)
-                    break
         except Exception as e:
             logging.error(f'An error occurred while processing the JSON data: {str(e)}')
         finally:
